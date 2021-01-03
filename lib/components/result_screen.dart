@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:project_purple_beetle/components/my_icon_button.dart';
 import 'package:project_purple_beetle/constants.dart';
 
 class ResultScreen extends StatelessWidget {
@@ -43,13 +44,8 @@ class ResultScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    IconButton(
-                      icon: Icon(
-                        FeatherIcons.delete,
-                        size: 25.0,
-                        color: kPrimaryColor,
-                      ),
-                      onPressed: () {},
+                    MyIconButton(
+                      icon: FeatherIcons.delete,
                     ),
                   ],
                 ),
