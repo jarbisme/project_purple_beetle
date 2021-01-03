@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:project_purple_beetle/components/my_icon_button.dart';
 
 import '../constants.dart';
 
@@ -42,20 +43,8 @@ class MyAppbar extends StatelessWidget {
           ),
           Row(
             children: [
-              IconButton(
-                icon: Icon(
-                  FeatherIcons.cornerUpLeft,
-                  color: kPrimaryColor,
-                ),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: Icon(
-                  FeatherIcons.clock,
-                  color: kPrimaryColor,
-                ),
-                onPressed: () {},
-              ),
+              MyIconButton(icon: FeatherIcons.cornerUpLeft),
+              MyIconButton(icon: FeatherIcons.clock),
             ],
           ),
         ],
