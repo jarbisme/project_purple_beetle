@@ -11,6 +11,33 @@ class CalculatorScreen extends StatefulWidget {
 }
 
 class _CalculatorScreenState extends State<CalculatorScreen> {
+  double result = 768;
+  List<String> formula = [];
+
+  void updateFormulta(newValue) {
+    setState(() {
+      formula.add(newValue);
+    });
+    print(formula);
+  }
+
+  void handleKey(key) {
+    switch (key) {
+      case 'C':
+        setState(() {
+          formula.clear();
+        });
+        break;
+      default:
+        updateFormulta(key);
+        break;
+    }
+  }
+
+  void calculate() {
+    formula.forEach((value) => {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,10 +49,15 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           children: [
             MyAppbar(),
             Expanded(
-              child: ResultScreen(),
+              child: ResultScreen(
+                formula: formula,
+                result: result.toString(),
+              ),
             ),
             VarSection(),
-            Keyboard(),
+            Keyboard(
+              onTap: handleKey,
+            ),
           ],
         ),
       ),

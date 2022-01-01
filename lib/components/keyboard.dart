@@ -4,6 +4,13 @@ import 'package:project_purple_beetle/components/my_button.dart';
 import 'package:project_purple_beetle/constants.dart';
 
 class Keyboard extends StatelessWidget {
+  const Keyboard({
+    Key key,
+    @required this.onTap,
+  }) : super(key: key);
+
+  final Function(String) onTap;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,17 +30,20 @@ class Keyboard extends StatelessWidget {
                   child: Row(
                     children: [
                       MyButton(
-                        text: 'C',
+                        symbol: 'C',
                         foreground: kSecundaryColor,
+                        onTap: onTap,
                       ),
                       MyButton(
-                        text: '+/-',
+                        symbol: '+/-',
                         foreground: kSecundaryColor,
+                        onTap: onTap,
                       ),
                       MyButton(
-                        text: '%',
+                        symbol: '%',
                         icon: FeatherIcons.percent,
                         foreground: kSecundaryColor,
+                        onTap: onTap,
                       ),
                     ],
                   ),
@@ -42,28 +52,16 @@ class Keyboard extends StatelessWidget {
                   child: Row(
                     children: [
                       MyButton(
-                        text: '7',
+                        symbol: '7',
+                        onTap: onTap,
                       ),
                       MyButton(
-                        text: '8',
+                        symbol: '8',
+                        onTap: onTap,
                       ),
                       MyButton(
-                        text: '9',
-                      ),
-                    ],
-                  ),
-                ),
-                Flexible(
-                  child: Row(
-                    children: [
-                      MyButton(
-                        text: '4',
-                      ),
-                      MyButton(
-                        text: '5',
-                      ),
-                      MyButton(
-                        text: '6',
+                        symbol: '9',
+                        onTap: onTap,
                       ),
                     ],
                   ),
@@ -72,13 +70,16 @@ class Keyboard extends StatelessWidget {
                   child: Row(
                     children: [
                       MyButton(
-                        text: '1',
+                        symbol: '4',
+                        onTap: onTap,
                       ),
                       MyButton(
-                        text: '2',
+                        symbol: '5',
+                        onTap: onTap,
                       ),
                       MyButton(
-                        text: '3',
+                        symbol: '6',
+                        onTap: onTap,
                       ),
                     ],
                   ),
@@ -87,15 +88,36 @@ class Keyboard extends StatelessWidget {
                   child: Row(
                     children: [
                       MyButton(
-                        text: 'fn',
+                        symbol: '1',
+                        onTap: onTap,
+                      ),
+                      MyButton(
+                        symbol: '2',
+                        onTap: onTap,
+                      ),
+                      MyButton(
+                        symbol: '3',
+                        onTap: onTap,
+                      ),
+                    ],
+                  ),
+                ),
+                Flexible(
+                  child: Row(
+                    children: [
+                      MyButton(
+                        symbol: 'fn',
                         background: kPrimaryColor.withOpacity(0.1),
                         functionBtn: true,
+                        onTap: onTap,
                       ),
                       MyButton(
-                        text: '0',
+                        symbol: '0',
+                        onTap: onTap,
                       ),
                       MyButton(
-                        text: '.',
+                        symbol: '.',
+                        onTap: onTap,
                       ),
                     ],
                   ),
@@ -124,22 +146,30 @@ class Keyboard extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       MyButton(
+                        symbol: 'x',
                         icon: FeatherIcons.x,
+                        onTap: onTap,
                       ),
                       MyButton(
-                        text: '/',
+                        symbol: '/',
+                        onTap: onTap,
                       ),
                       MyButton(
+                        symbol: '-',
                         icon: FeatherIcons.minus,
+                        onTap: onTap,
                       ),
                       MyButton(
+                        symbol: '+',
                         icon: FeatherIcons.plus,
+                        onTap: onTap,
                       ),
                       MyButton(
-                        text: '=',
+                        symbol: '=',
                         background: kPrimaryColor,
                         foreground: Colors.white,
                         floating: true,
+                        onTap: onTap,
                       ),
                     ],
                   )

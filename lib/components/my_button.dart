@@ -7,17 +7,19 @@ class MyButton extends StatelessWidget {
     this.background,
     this.foreground,
     this.icon,
-    this.text,
+    @required this.symbol,
     this.floating = false,
     this.functionBtn = false,
+    @required this.onTap,
   }) : super(key: key);
 
   final Color background;
   final Color foreground;
   final IconData icon;
-  final String text;
+  final String symbol;
   final bool floating;
   final bool functionBtn;
+  final Function(String) onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -58,14 +60,17 @@ class MyButton extends StatelessWidget {
                     color: foreground ?? kPrimaryColor,
                   )
                 : Text(
-                    this.text ?? '?',
+                    this.symbol ?? '?',
                     style: TextStyle(
                       fontSize: functionBtn ? 25 : 32,
                       fontWeight: functionBtn ? FontWeight.bold : null,
                       color: foreground ?? kPrimaryColor,
                     ),
                   ),
-            onPressed: () {},
+            onPressed: () {
+              onTap(this.symbol);
+              print('Key ' + this.symbol + ' pressed');
+            },
           ),
         ),
       ),

@@ -4,6 +4,15 @@ import 'package:project_purple_beetle/components/my_icon_button.dart';
 import 'package:project_purple_beetle/constants.dart';
 
 class ResultScreen extends StatelessWidget {
+  const ResultScreen({
+    Key key,
+    @required this.formula,
+    @required this.result,
+  }) : super(key: key);
+
+  final List<String> formula;
+  final String result;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,14 +29,13 @@ class ResultScreen extends StatelessWidget {
                 ),
           ),
           Container(
-            padding: EdgeInsets.only(
-              left: 20.0, right: 5.0
-            ),
+            padding: EdgeInsets.only(left: 20.0, right: 5.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  'UNI + (Transport + Food) * 4',
+                  // 'UNI + (Transport + Food) * 4',
+                  formula.isEmpty ? '' : formula.toString(),
                   style: TextStyle(
                     fontSize: 16.0,
                     color: kPrimaryColor.withOpacity(0.3),
@@ -37,7 +45,7 @@ class ResultScreen extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        '76,512',
+                        result ?? '76,512',
                         style: TextStyle(
                           fontSize: 64,
                           color: kPrimaryColor,
